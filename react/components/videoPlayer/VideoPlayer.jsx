@@ -15,8 +15,12 @@ const VideoPlayer = ({
 
   const CSS_HANDLES = [
     'player-wrapper',
-    'aspect-169 pos-relative full-width full-height',
-    'video-elem pos-absolute full-width'
+    'aspect-169',
+    'pos-relative',
+    'full-height',
+    'video-elem',
+    'pos-absolute',
+    'full-width'
   ]
   const handles = useCssHandles(CSS_HANDLES)
 
@@ -61,13 +65,15 @@ const VideoPlayer = ({
   return (
     <>
       <div className={`${handles['player-wrapper']}`}>
-        <div className={`${handles['aspect-169 pos-relative full-width full-height']}`}>
+        <div className={`${handles['aspect-169']} ${handles['pos-relative']} ${handles['full-width']} ${handles['full-height']}`}>
           <video
             id='video-player'
-            className={`${handles['video-elem pos-absolute full-width']}`}
-            playsInline
-            muted
-          ></video>
+            className={`${handles['video-elem']} ${handles['pos-absolute']} ${handles['full-width']}`}
+            // playsInline
+            // muted
+          >
+              <source src="./video.mp4" type="video/mp4"></source>
+          </video>
         </div>
       </div>
     </>
