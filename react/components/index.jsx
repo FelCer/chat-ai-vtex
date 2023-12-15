@@ -29,15 +29,21 @@ const ChatAi = () => {
     "chat-line-wrapper",
     "chat-line",
     "username",
-    "main full-width full-height",
+    "main",
+    "full-width",
+    "full-height",
     "content-wrapper",
     "col-wrapper",
     "chat-wrapper",
     "messages",
-    "composer fl fl-j-center",
+    "fl",
+    "fl-j-center",
+    "message-container",
     "rounded mg-r-1",
-    "btn btn--primary full-width rounded",
-    "error-line"
+    "btn btn--primary",
+    "full-width rounded",
+    "error-line",
+    "input-message"
   ]
   const handles = useCssHandles(CSS_HANDLES)
   const [showSignIn, setShowSignIn] = useState(true);
@@ -344,7 +350,7 @@ const ChatAi = () => {
 
   return (
     <>
-      <div className={`${handles['main full-width full-height']}`}>
+      <div className={`${handles['main']} ${handles['full-width']} ${handles['full-height']}`}>
         <div className={`${handles['content-wrapper']}`}>
           <VideoPlayer
             playbackUrl={config.PLAYBACK_URL}
@@ -355,10 +361,10 @@ const ChatAi = () => {
                 {renderMessages()}
                 <div ref={messagesEndRef} />
               </div>
-              <div className={`${handles['composer fl fl-j-center']}`}>
+              <div className={`${handles['message-container']}`}>
                 <input
                   ref={chatRef}
-                  className={`${handles['rounded mg-r-1']} ${!username ? 'hidden' : ''}`}
+                  className={`${handles['input-message']} ${handles['rounded mg-r-1']} ${!username ? 'hidden' : ''}`}
                   type='text'
                   placeholder={
                     isChatConnected()
@@ -375,7 +381,7 @@ const ChatAi = () => {
                   <fieldset>
                     <button
                       onClick={handleOnClick}
-                      className={`${handles['btn btn--primary full-width rounded']}`}
+                      className={`${handles['btn btn--primary']} ${handles['full-width rounded']}`}
                     >
                       Join the chat room
                     </button>
