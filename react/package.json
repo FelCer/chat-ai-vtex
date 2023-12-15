@@ -1,6 +1,6 @@
 {
-  "name": "CHANGE_ME",
-  "version": "0.0.0",
+  "name": "chat-ai",
+  "version": "0.0.1",
   "scripts": {
     "test": "vtex-test-tools test"
   },
@@ -15,8 +15,7 @@
     "linkify-react": "^4.0.2",
     "linkifyjs": "^4.0.2",
     "node-forge": ">=0.10.0",
-    "react-scripts": "5.0.0",
-    "vtex.css-handles": "0.x"
+    "react-scripts": "5.0.0"
   },
   "devDependencies": {
     "@apollo/react-testing": "^3.1.3",

@@ -20,6 +20,63 @@
   justify-content: center;
 }
 
+/* Aspect ratio */
+.aspect-169 {
+  padding-top: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.player {
+  background: var(--color-bg-player);
+}
+
+/* Buttons & Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+fieldset {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset input,
+fieldset textarea,
+fieldset select,
+fieldset button {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.pos-relative {
+  position: relative !important;
+}
+
+.player-wrapper {
+  width: 100%;
+  background: black;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.full-width {
+  width: 100%;
+}
+.full-height {
+  height: 100%;
+}
+
+
 @media (max-width: 480px) {
   /* Smaller Screens */
   :root {

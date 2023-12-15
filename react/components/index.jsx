@@ -16,17 +16,26 @@ import * as config from '../resources/config.js';
 import VideoPlayer from './videoPlayer/VideoPlayer';
 import SignIn from './signin/SignIn.jsx';
 import { useCssHandles } from 'vtex.css-handles'
-
 // Styles
 import './Chat.css';
 
 const ChatAi = () => {
   const CSS_HANDLES = [
     "success-line",
+    "chat-line-wrapper",
+    "chat-line",
+    "username",
+    "main full-width full-height",
+    "content-wrapper",
+    "col-wrapper",
+    "chat-wrapper",
+    "messages",
+    "composer fl fl-j-center",
+    "rounded mg-r-1",
+    "btn btn--primary full-width rounded",
+    "error-line"
   ]
-  
   const handles = useCssHandles(CSS_HANDLES)
-
   const [showSignIn, setShowSignIn] = useState(true);
   const [username, setUsername] = useState('');
   const [message, setMessage] = useState('');
@@ -224,25 +233,26 @@ const ChatAi = () => {
   // Renderers
   const renderErrorMessage = (errorMessage) => {
     return (
-      <div className='error-line' key={errorMessage.timestamp}>
+      <div className={`${handles['error-line']}`} key={errorMessage.timestamp}>
         <p>{errorMessage.message}</p>
       </div>
     );
   };
 
+
   const renderSuccessMessage = (successMessage) => {
     return (
-      <div className={`${handles['success-line']}` key={successMessage.timestamp}>
+      <div className={`${handles['success-line']}`} key={successMessage.timestamp}>
         <p>{successMessage.message}</p>
       </div>
     );
   };
   const renderMessage = (message) => {
     return (
-      <div className={`${handles['chat-line-wrapper']}` key={message.id}>
-        <div className={`${handles['chat-line']}`>
+      <div className={`${handles['chat-line-wrapper']}`} key={message.id}>
+        <div className={`${handles['chat-line']}`}>
           <p>
-            <span className='username'>{message.username}</span>
+            <span className={`${handles['username']}`}>{message.username}</span>
             <Linkify
               options={{
                 ignoreTags: ['script', 'style'],
@@ -311,21 +321,21 @@ const ChatAi = () => {
 
   return (
     <>
-      <div className='main full-width full-height chat-container'>
-        <div className='content-wrapper mg-2'>
+      <div className={`${handles['main full-width full-height']}`}>
+        <div className={`${handles['content-wrapper']}`}>
           <VideoPlayer
             playbackUrl={config.PLAYBACK_URL}
           />
-          <div className='col-wrapper'>
-            <div className='chat-wrapper'>
-              <div className='messages'>
+          <div className={`${handles['col-wrapper']}`}>
+            <div className={`${handles['chat-wrapper']}`}>
+              <div className={`${handles['messages']}`}>
                 {renderMessages()}
                 <div ref={messagesEndRef} />
               </div>
-              <div className='composer fl fl-j-center'>
+              <div className={`${handles['composer fl fl-j-center']}`}>
                 <input
                   ref={chatRef}
-                  className={`rounded mg-r-1 ${!username ? 'hidden' : ''}`}
+                  className={`${handles['rounded mg-r-1']} ${!username ? 'hidden' : ''}`}
                   type='text'
                   placeholder={
                     isChatConnected()
@@ -342,7 +352,7 @@ const ChatAi = () => {
                   <fieldset>
                     <button
                       onClick={handleOnClick}
-                      className='btn btn--primary full-width rounded'
+                      className={`${handles['btn btn--primary full-width rounded']}`}
                     >
                       Join the chat room
                     </button>

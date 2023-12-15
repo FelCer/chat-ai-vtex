@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "name": "metatags",
+  "name": "chat-ai",
+  "version": "0.0.1",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -8,6 +8,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\"",
     "lint:locales": "intl-equalizer",
     "test": "cd ./react && yarn test"
+  },
+  "dependencies": {
   },
   "intl-equalizer": {
     "referenceLocale": "en",

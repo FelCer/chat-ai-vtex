@@ -5,10 +5,21 @@ import React, { useEffect } from 'react';
 
 // Styles
 import './VideoPlayer.css';
+import { useCssHandles } from 'vtex.css-handles'
+// Styles
+import './VideoPlayer.css';
 
 const VideoPlayer = ({
   playbackUrl,
 }) => {
+
+  const CSS_HANDLES = [
+    'player-wrapper',
+    'aspect-169 pos-relative full-width full-height',
+    'video-elem pos-absolute full-width'
+  ]
+  const handles = useCssHandles(CSS_HANDLES)
+
   useEffect(() => {
     const MediaPlayerPackage = window.IVSPlayer;
 
@@ -49,11 +60,11 @@ const VideoPlayer = ({
 
   return (
     <>
-      <div className='player-wrapper'>
-        <div className='aspect-169 pos-relative full-width full-height'>
+      <div className={`${handles['player-wrapper']}`}>
+        <div className={`${handles['aspect-169 pos-relative full-width full-height']}`}>
           <video
             id='video-player'
-            className='video-elem pos-absolute full-width'
+            className={`${handles['video-elem pos-absolute full-width']}`}
             playsInline
             muted
           ></video>
