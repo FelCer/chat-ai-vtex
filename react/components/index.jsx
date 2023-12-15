@@ -183,12 +183,12 @@ const ChatAi = () => {
     };
   }, [chatRoom]);
 
-  useEffect(() => {
-    const scrollToBottom = () => {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    };
-    scrollToBottom();
-  });
+  // useEffect(() => {
+  //   const scrollToBottom = () => {
+  //     messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+  //   };
+  //   scrollToBottom();
+  // },);
 
   // Handlers
   const handleError = (data) => {
@@ -356,13 +356,14 @@ const ChatAi = () => {
             playbackUrl={config.PLAYBACK_URL}
           />
           <div className={`${handles['col-wrapper']}`}>
-            <div className={`${handles['chat-wrapper']}`}>
+            <div autoFocus={false} className={`${handles['chat-wrapper']}`}>
               <div className={`${handles['messages']}`}>
                 {renderMessages()}
                 <div ref={messagesEndRef} />
               </div>
               <div className={`${handles['message-container']}`}>
                 <input
+                  autoFocus={false}
                   ref={chatRef}
                   className={`${handles['input-message']} ${handles['rounded mg-r-1']} ${!username ? 'hidden' : ''}`}
                   type='text'
