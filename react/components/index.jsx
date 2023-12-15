@@ -18,6 +18,10 @@ import SignIn from './signin/SignIn.jsx';
 import { useCssHandles } from 'vtex.css-handles'
 // Styles
 import './Chat.css';
+import io from "socket.io-client"
+
+
+const socket = io('http://localhost:4000')
 
 const ChatAi = () => {
   const CSS_HANDLES = [
@@ -41,6 +45,21 @@ const ChatAi = () => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [chatRoom, setChatRoom] = useState([]);
+  // const [adminSocket, setAdminSocket] = useState(null)
+
+  //efecto para un nuevo socket y un nuevo msjs de renderizado es probable que no se use
+
+  // useEffect(() => {
+
+  //   const adminSocket = io(`${config.API_URL}/admin`);
+  //   setAdminSocket(adminSocket);
+
+  //   return () => {
+  //     adminSocket.disconnect();
+  //   };
+  // }, []);
+
+  //efecto para un nuevo socket y un nuevo msjs de renderizado es probable que no se use
 
   const chatRef = createRef();
   const messagesEndRef = createRef();
@@ -135,6 +154,10 @@ const ChatAi = () => {
     const unsubscribeOnMessageReceived = chatRoom.addListener(
       'message',
       (message) => {
+
+        socket.emit('sendMessage', (message))
+
+        console.log("soy el ultimo mensaje", message)
         // Received a message
         const messageType = message.attributes?.message_type || 'MESSAGE';
         switch (messageType) {
