@@ -18,7 +18,7 @@ const VideoPlayer = ({
     'aspect-169',
     'pos-relative',
     'full-height',
-    'video-elem',
+    'video-element',
     'pos-absolute',
     'full-width'
   ]
@@ -66,14 +66,7 @@ const VideoPlayer = ({
     <>
       <div className={`${handles['player-wrapper']}`}>
         <div className={`${handles['aspect-169']} ${handles['pos-relative']} ${handles['full-width']} ${handles['full-height']}`}>
-          <video
-            id='video-player'
-            className={`${handles['video-elem']} ${handles['pos-absolute']} ${handles['full-width']}`}
-            // playsInline
-            // muted
-          >
-              <source src="./video.mp4" type="video/mp4"></source>
-          </video>
+          <img className={`${handles['video-element']}`} src='https://i.pinimg.com/736x/3d/2f/06/3d2f06e79473b43304044154d18c68e8.jpg' alt='image' style={{ width: '100%', height: '100%' }} />
         </div>
       </div>
     </>
